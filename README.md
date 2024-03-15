@@ -1,0 +1,54 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Get Census Tract ID for Exact Locations
+
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/geomarker-io/tract/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/geomarker-io/tract/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tract)](https://CRAN.R-project.org/package=tract)
+<!-- badges: end -->
+
+## About
+
+## Installation
+
+You can install the development version of tract from GitHub with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("geomarker-io/tract")
+```
+
+## Example
+
+In R, get census tract identifiers for exact locations and years using
+the `get_census_tract_id()` function:
+
+``` r
+library(tract)
+
+get_census_tract_id(
+  s2::as_s2_cell(c("8841b399ced97c47", "8841b38578834123")), 
+  year = "2020")
+#> ℹ Found 2 unique locations in 1 state
+#> 8841b399ced97c47 8841b38578834123 
+#>    "39061003200"    "39061003000"
+```
+
+## S2 geohash
+
+The [s2 geohash](https://s2geometry.io/) is a
+[hierarchical](https://s2geometry.io/devguide/s2cell_hierarchy.html)
+geospatial index that uses [spherical
+geometry](https://s2geometry.io/about/overview). In R, s2 cells can be
+[created](https://r-spatial.github.io/s2/reference/s2_cell.html#ref-examples)
+using their character string representation, or by specifying latitude
+and longitude coordinates; e.g.:
+
+``` r
+s2::s2_lnglat(c(-84.4126, -84.5036), c(39.1582, 39.2875)) |> s2::as_s2_cell()
+#> <s2_cell[2]>
+#> [1] 8841ad122d9774a7 88404ebdac3ea7d1
+```
