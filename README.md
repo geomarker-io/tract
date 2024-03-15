@@ -10,8 +10,6 @@
 status](https://www.r-pkg.org/badges/version/tract)](https://CRAN.R-project.org/package=tract)
 <!-- badges: end -->
 
-## About
-
 ## Installation
 
 You can install the development version of tract from GitHub with:
